@@ -209,7 +209,7 @@ def value_iteration(mdp, epsilon=0.001):
         U = U1.copy()
         delta = 0
         for s in mdp.states:
-            U1[s] = R(s) + gamma * max(sum(p * U[s1] for (p, s1) in T(s, a))
+            U1[s] = R(s) + gamma * max(np.sum([p * U[s1] for (p, s1) in T(s, a)])
                                        for a in mdp.actions(s))
             delta = max(delta, abs(U1[s] - U[s]))
         if delta <= epsilon * (1 - gamma) / gamma:
