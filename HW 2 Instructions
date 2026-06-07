@@ -1,0 +1,55 @@
+Create the Vacuum Cleaner world as described in Figure 2.2 in the GraphicEnvironment with the following extra parameters:
+Make the environment a 10 x 10 grid instead of 2x1 shown in the book. For all Things in the world, make sure that they have their own color. Please state the objects and their color in a Markdown Cell I can read in the notebook so I understand the visuals.
+The Vacuum will inherit from the Agent Class.
+By default, the vacuum can only perceive multiple Things at its current location, just like the Blind Dog.
+By default, the vacuum will clean dirt or move in a random direction (up/down/left/right) with equal probability if no dirt is detected.
+Unlike the blind dog, allow the vacuum to go in any direction without having to spend a time step to turn.
+The vacuum should try a different direction instead of going out of bounds.
+Each time you run the simulation and create the environment
+Randomly create between 5 to 20 dirt objects and place them at random locations in-bounds of the grid.
+Multiple dirt objects may be at a given location (extra dirty spot).
+*Hint* try dynamically creating a Python list of the random size of the dirt objects. Each one in the list can be added to the environment as its own object and won't be a repeated object (referred to as the 'same' object in the code, which is not allowed). There may be other methods you prefer to do this also.
+Place the vacuum at a random location in-bounds.
+
+Create a new Class that inherits from Thing called Cat and place it at a random location in-bounds each time the simulation starts.
+When the vacuum is at the cat location, the simulation ends.
+
+Keep track of the Agent's performance variable using the attribute already existing in the Agent class.
+Increase it by 1 each time you clean up dirt.
+Decrease the performance each time the vacuum moves to a location without dirt.
+Print the current performance in the output each step.
+
+At each time step, be sure to print out the vacuum location, what the vacuum currently perceives, the last action chosen given that percept, the performance score, and the current time step (which should just count up from 0).
+Create at least one of your own features in the environment. Below are just some ideas, but feel free to choose your own.
+You can add a new Class that inherits Thing that has special behavior, whether it moves or stays still.
+The thing could be a warp tunnel that moves the vacuum to a random or specific location in-bounds.
+You can add furniture/walls at locations that the vacuum must go around.
+The cat could move.
+ It could be 80% chance to stay still, and 5% chance up/down/left/right each.
+The cat could run away from the vacuum instead of ending the simulation when the vacuum sees it as a percept at its location.
+Moving could leave dirt in previous locations when it moves.
+Add multiple vacuums with the same or different behavior program functions.
+Adding your own performance values for different behavior.
+Change what the vacuum can perceive.
+Perhaps a list of the locations of dirt, calculating the closest and heading there.
+Change the vacuum program function to have different or extra actions.
+etc.
+
+Run your code for a number of time steps and leave the output on the screen so I can see that it runs before executing it myself.
+
+Additional Smart Vacuum Goals
+
+Create a second vacuum agent, separate from the original random-moving vacuum, so both agents can run in the same 10 x 10 Vacuum Cleaner world.
+The original Vacuum should keep its existing random behavior.
+The new SmartVacuum should inherit from the existing Vacuum agent so it can reuse the same cleaning and movement methods.
+Spawn the SmartVacuum at a random in-bounds location each time the simulation starts.
+Give SmartVacuum its own color and document that color in the notebook Markdown cell.
+
+Allow the SmartVacuum to perceive the full list of Dirt locations in the grid, while the original Vacuum keeps the default local-only percept behavior.
+The SmartVacuum should use the list of Dirt locations to find the closest Dirt object to its current location.
+Use grid distance, such as Manhattan distance, to decide which Dirt location is closest.
+If SmartVacuum is already on a Dirt location, it should clean that Dirt.
+If SmartVacuum is not on Dirt, it should move one step toward the closest Dirt location.
+After cleaning a Dirt object, SmartVacuum should repeat the process: update the Dirt list, find the next closest Dirt, move toward it, and clean it.
+
+At the end of the simulation, print the performance score for both the original Vacuum and the SmartVacuum so their behavior can be compared.
