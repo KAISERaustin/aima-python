@@ -1,0 +1,57 @@
+1. Explain the difference between rationality, omniscience, and successful behavior. Give an example of an agent that acts rationally but does not achieve its goal. Then give an example of an agent that achieves its goal but may not be rational.
+
+2. Consider an AI hiring assistant whose performance measure rewards maximizing predicted employee 
+retention and minimizing time spent reviewing applications. Identify at least three ways this performance measure could produce undesirable behavior. Propose a revised performance measure and explain how it changes the agent’s behavior.
+
+3. Consider an AI system that acts as a hospital scheduling assistant (a real project we recently had on campus). Describe and analyze it as an agent. Describe its performance measure, environment, actuators, and sensors. Then classify the environment according to observability, determinism, episodic/sequential structure, dynamics, discreteness, and number of agents. Finally, recommend whether a simple reflex agent, model-based reflex agent, goal-based agent, utility-based agent, or learning agent would be most appropriate. *Note: I recognize this is somewhat vague, I am asking you to come up with details.
+
+4. Consider the problem of escaping a maze with keys and locked doors. Formulate it formally as a search problem. Clearly define the state space, initial state, actions, transition model, goal test, and path cost.
+Consider the example state representation below. Compare it to your own, highlighting strengths and weaknesses of each.
+State parameters include: (row, column, keys_held, unlocked_doors, collected_keys).
+- (row, column) is the agent's current location.
+- keys_held is the set of keys currently available.
+- unlocked_doors is the set of doors that have already been unlocked.
+- collected_keys is the set of keys already picked up from the make.
+
+5. For each of the following problems, choose one search algorithm from breadth-first search, depth-first search, uniform-cost search, greedy best-first search, A*, or iterative deepening search. Justify your choice in terms of completeness, optimality, time complexity, space complexity, and assumptions about costs or heuristics.
+
+A: A shallow solution is likely; all actions have equal cost.
+B: Memory is extremely limited, but the solution depth is unknown.
+C: Step costs vary and the cheapest solution is required.
+D: A good admissible heuristic is available.
+E: The search tree is very deep and contains many repeated states.
+F: A quick but not necessarily optimal solution is acceptable.
+
+6. Consider the following graph represented by the table of directed edges below (directed means that an edge from S to A does NOT imply an edge from A to S), along with the second table for a heuristic h(n) that estimates the cost from a given node to the goal node (G). Perform the A* search starting from initial state (S). Give the following information:
+- Draw the graph and provide an image. Feel free to use pencil/paper or any software you like to create the image. Label the nodes and edge costs.
+- What order were the nodes expanded?
+- What is the final path returned?
+- What is the total path cost?
+- Is the solution optimal?
+- Is the heuristic admissible? Show and justify why this is the case. Based on this answer, are we guaranteed to have optimal solutions?
+
+Do the same thing with the Greedy-First algorithm, using the heuristic value for your greedy choice. Justify which algorithm performed better.
+
+Directed Edge Table
+From	To	Cost
+S	A	2
+S	B	1
+S	C	5
+A	C	4
+B	E	2
+C	D	1
+C	G	7
+D	E	1
+D	F	3
+E	G	6
+F	G	2
+Heuristic Table
+Node	(h(n))
+S	8
+A	7
+B	6
+C	4
+D	2
+E	5
+F	1
+G	0
